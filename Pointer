@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+// Function to update the values using pointers
+void update(int *a, int *b) {
+    int sum = *a + *b;          // Calculate sum
+    int diff = *a - *b;         // Calculate difference
+    if (diff < 0) diff = -diff; // Convert to absolute difference
+
+    *a = sum;                   // Update *a to hold the sum
+    *b = diff;                  // Update *b to hold the absolute difference
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    update(&a, &b);             // Pass addresses of a and b to the function
+    cout << a << endl;          // Print sum
+    cout << b << endl;          // Print absolute difference
+
+    return 0;
+}
