@@ -4,27 +4,21 @@ using namespace std;
 int main() {
     int n, q;
     cin >> n >> q;
-    cin.ignore();  // ignore newline after reading n and q
-
-    map<string, string> attributes;  // stores full path -> attribute value
-    vector<string> tag_path;         // keeps track of current nesting path
+    cin.ignore();  
+    map<string, string> attributes; 
+    vector<string> tag_path;         
 
     for (int i = 0; i < n; i++) {
         string line;
         getline(cin, line);
 
-        // Remove angle brackets
         if (line.substr(0, 2) == "</") {
-            // closing tag -> pop from path
             tag_path.pop_back();
         } else {
-            // opening tag
             line = line.substr(1, line.size() - 2); // remove < and >
             stringstream ss(line);
             string tag_name;
             ss >> tag_name;
-
-            // Add this tag to the current path
             tag_path.push_back(tag_name);
             string prefix;
             for (int j = 0; j < tag_path.size(); j++) {
@@ -35,14 +29,12 @@ int main() {
             string attr_name, equal_sign, attr_value;
             while (ss >> attr_name) {
                 ss >> equal_sign >> attr_value;
-                // remove quotes from value
                 attr_value = attr_value.substr(1, attr_value.size() - 2);
                 attributes[prefix + "~" + attr_name] = attr_value;
             }
         }
     }
 
-    // Process queries
     for (int i = 0; i < q; i++) {
         string query;
         getline(cin, query);
@@ -52,6 +44,5 @@ int main() {
             cout << "Not Found!" << endl;
         }
     }
-
     return 0;
 }
