@@ -1,19 +1,11 @@
 
-// --- Format A ---
-        // Print as truncated, lowercase hexadecimal with "0x" prefix
-        // We use 'left' to override the 'internal' justification from outside the loop
+   
         cout << hex << nouppercase << showbase << left;
         cout << (long long)A << endl;
 
-        // --- Format B ---
-        // Print with 2 decimal places, 15 width, right-justified, 
-        // padded with '_', and always show a sign (+ or -)
         cout << fixed << setprecision(2) << setw(15) << right << setfill('_') << showpos;
         cout << B << endl;
-
-        // --- Format C ---
-        // Print in scientific notation with 9 decimal places and uppercase 'E'
-        // We must turn off the sign flag (noshowpos) and turn uppercase back on
+      
         cout << scientific << setprecision(9) << uppercase << noshowpos;
         cout << C << endl;
 
