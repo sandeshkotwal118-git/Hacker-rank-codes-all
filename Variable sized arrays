@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q;  // n = number of arrays, q = number of queries
+
+    vector<vector<int>> arr(n);  // Create a vector of n dynamic arrays
+
+    // Input: Read n variable-sized arrays
+    for (int i = 0; i < n; i++) {
+        int k;
+        cin >> k;                // Number of elements in the i-th array
+        arr[i].resize(k);        // Resize the i-th vector to hold k integers
+        for (int j = 0; j < k; j++) {
+            cin >> arr[i][j];    // Read each element
+        }
+    }
+
+    // Process queries
+    for (int i = 0; i < q; i++) {
+        int a, b;
+        cin >> a >> b;           // Read query indices
+        cout << arr[a][b] << endl; // Output the element at arr[a][b]
+    }
+
+    return 0;
+}
