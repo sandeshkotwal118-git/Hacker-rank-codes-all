@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;   // Read three integers from input
+    int sum = a + b + c;  // Calculate their sum
+    cout << sum << endl;  // Print the result
+    return 0;
+}
