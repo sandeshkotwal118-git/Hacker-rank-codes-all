@@ -3,9 +3,9 @@ using namespace std;
 
 int main() {
     int n;
-    cin >> n;            // Read number of elements
+    cin >> n;            
     
-    int arr[n];          // Declare array of size n
+    int arr[n];        
     
     // Read n integers
     for (int i = 0; i < n; i++) {
